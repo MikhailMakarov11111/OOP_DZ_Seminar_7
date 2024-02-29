@@ -1,23 +1,26 @@
 package org.example.model;
 
-public abstract  class AbstractNumberCalculator implements NumberCalculator {
+import java.util.List;
+
+public abstract  class AbstractNumberCalculator {
+private List<Double> numbers;
+
+    public List<Double> getNumbers() {
+        return numbers;
+    }
+
+    public void setNumbers(List<Double> numbers) {
+        this.numbers = numbers;
+    }
+
+    public AbstractNumberCalculator(List<Double> numbers) {
+        this.numbers = numbers;
+    }
+
     @Override
     public String toString() {
-        return super.toString();
-    }
-
-    @Override
-    public double sum(double num1, double num2) {
-        return num1 + num2;
-    }
-
-    @Override
-    public double multiply(double num1, double num2) {
-        return num1*num2;
-    }
-
-    @Override
-    public double divide(double num1, double num2) {
-        return num1/num2;
+        return "AbstractNumberCalculator{" +
+                "numbers=" + numbers +
+                '}';
     }
 }

@@ -1,7 +1,9 @@
 package org.example.model;
 
+import java.util.List;
+
 public interface NumberCalculator {
-    double sum(double num1, double num2);
-    double multiply(double num1, double num2);
-    double divide(double num1, double num2);
+    double sum(List<? extends Number> numbers);
+    double multiply(List<? extends Number> numbers);
+    double divide(List<? extends Number> numbers);
 }

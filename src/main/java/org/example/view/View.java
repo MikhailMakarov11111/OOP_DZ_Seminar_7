@@ -2,7 +2,7 @@ package org.example.view;
 
 import java.util.Scanner;
 
-public class view {
+public class View {
     public void choosingCalculator(Scanner scanner) {
         System.out.println("Добро пожаловать в Калькулятор, для того чтобы \n " +
                 "продолжить выберите действие:\n" +

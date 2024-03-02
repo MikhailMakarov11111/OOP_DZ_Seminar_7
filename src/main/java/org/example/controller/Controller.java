@@ -1,4 +1,4 @@
 package org.example.controller;
 
-public class controller {
+public class Controller {
 }

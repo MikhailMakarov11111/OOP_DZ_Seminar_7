@@ -1,18 +1,37 @@
 package org.example.model;
 
-public class OperationComplex extends AbstractComplexCalculator implements Calculator{
-    @Override
-    public ComplexNumber divide(ComplexNumber num1, ComplexNumber num2) throws ArithmeticException {
-        return super.divide(num1, num2);
+public final class OperationComplex implements Calculator {
+
+    private ComplexNumber primaryArg;
+
+    public OperationComplex(ComplexNumber primaryArg) {
+        this.primaryArg = primaryArg;
     }
 
     @Override
-    public ComplexNumber multiply(ComplexNumber num1, ComplexNumber num2) {
-        return super.multiply(num1, num2);
+    public Calculator sum(ComplexNumber arg) {
+        primaryArg = new ComplexNumber(primaryArg.getReal() + arg.getReal(), primaryArg.getImaginary() + arg.getImaginary());
+        return this;
     }
 
     @Override
-    public ComplexNumber sum(ComplexNumber num1, ComplexNumber num2) {
-        return super.sum(num1, num2);
+    public Calculator multi(ComplexNumber arg) {
+        double real = primaryArg.getReal() * arg.getReal() - primaryArg.getImaginary() * arg.getImaginary();
+        double imaginary = primaryArg.getReal() * arg.getImaginary() + primaryArg.getImaginary() * arg.getReal();
+        primaryArg = new ComplexNumber(real, imaginary);
+        return this;
+    }
+
+    @Override
+    public Calculator div(ComplexNumber arg) {
+        double real = (primaryArg.getReal() * arg.getReal() + primaryArg.getImaginary() * arg.getImaginary()) / (Math.pow(arg.getReal(), 2) + Math.pow(arg.getImaginary(), 2));
+        double imaginary = (primaryArg.getImaginary() * arg.getReal() - primaryArg.getReal() * arg.getImaginary()) / (Math.pow(arg.getReal(), 2) + Math.pow(arg.getImaginary(), 2));
+        primaryArg = new ComplexNumber(real, imaginary);
+        return this;
+    }
+
+    @Override
+    public ComplexNumber getResult() {
+        return null;
     }
 }

@@ -13,20 +13,8 @@ public class ComplexNumber {
         return real;
     }
 
-    public void setReal(double real) {
-        this.real = real;
-    }
-
     public double getImaginary() {
         return imaginary;
     }
 
-    public void setImaginary(double imaginary) {
-        this.imaginary = imaginary;
-    }
-
-    @Override
-    public String toString() {
-        return real + " + " + imaginary;
-    }
 }

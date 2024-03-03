@@ -1,6 +1,8 @@
 package org.example.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class OperationNumber extends AbstractNumberCalculator implements Calculator {
 
@@ -21,6 +23,14 @@ public class OperationNumber extends AbstractNumberCalculator implements Calcula
 
     public OperationNumber(List<Double> numbers) {
         super(numbers);
+    }
+    public static List<Double> numbers(int size, Scanner scanner) {
+        List<Double> list = new ArrayList<>();
+        System.out.println("Введите " + size + " чисел: ");
+        for (int i = 0; i < size; i++) {
+            list.add(scanner.nextDouble());
+        }
+        return list;
     }
 
 }

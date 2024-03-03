@@ -1,10 +1,13 @@
 package org.example.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public abstract class AbstractNumberCalculator implements SumNumberCalculator,
         MultiplyNumberCalculator, DivideNumberCalculator {
     private List<Double> numbers;
+
 
     @Override
     public double divide(List<? extends Number> numbers) {
@@ -56,4 +59,5 @@ public abstract class AbstractNumberCalculator implements SumNumberCalculator,
                 "numbers=" + numbers +
                 '}';
     }
+
 }
